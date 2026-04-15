@@ -697,8 +697,49 @@
 
 <script>
 // ══════════════════════════════════════════════════════
-// i18n TRANSLATIONS
+// i18n — ALL CODE WRAPPED FOR SAFETY
 // ══════════════════════════════════════════════════════
+(function() {
+"use strict";
+
+var SUPPORTED = ['en','de','fr','es','nl','pl'];
+
+var COUNTRY_MAP = {
+  DE:'de',AT:'de',CH:'de',LI:'de',
+  FR:'fr',BE:'fr',MC:'fr',LU:'fr',
+  ES:'es',MX:'es',AR:'es',CO:'es',CL:'es',PE:'es',VE:'es',
+  NL:'nl',SR:'nl',
+  PL:'pl',
+  GB:'en',US:'en',AU:'en',CA:'en',NZ:'en',IE:'en',ZA:'en',AE:'en'
+};
+
+var savedLang = null;
+try { savedLang = localStorage.getItem('kunLang'); } catch(e) {}
+
+function matchBrowser() {
+  var langs = [];
+  try { if (navigator.language) langs.push(navigator.language); } catch(e){}
+  try { if (navigator.languages) langs = langs.concat(Array.prototype.slice.call(navigator.languages)); } catch(e){}
+  for (var i = 0; i < langs.length; i++) {
+    var short = langs[i].toLowerCase().split('-')[0].split('_')[0];
+    if (SUPPORTED.indexOf(short) !== -1) return short;
+  }
+  return null;
+}
+
+function applyLang(lang, translations) {
+  var strings = translations[lang];
+  if (!strings) return;
+  document.documentElement.lang = lang;
+  var els = document.querySelectorAll('[data-i18n]');
+  for (var i = 0; i < els.length; i++) {
+    var key = els[i].getAttribute('data-i18n');
+    if (strings[key] !== undefined) els[i].innerHTML = strings[key];
+  }
+  var sel = document.getElementById('langSelect');
+  if (sel) sel.value = lang;
+}
+
 var T = {
   en: {
     heroBadge: "Step-by-Step Guide",
@@ -864,112 +905,119 @@ var T = {
   },
   pl: {
     heroBadge: "Instrukcja krok po kroku",
-    heroTitle: "Jak aktywować Microsoft Office",
-    heroSubtitle: "Kompletny przewodnik aktywacji licencji Office za pomocą oficjalnego narzędzia aktywacji Microsoft — szybko, łatwo i w kilka minut.",
-    metaRead: "5 min czytania", metaUpdated: "Zaktualizowano 2025", metaAuthor: "Zespół KeyUpNow",
+    heroTitle: "Jak aktywowa\u0107 Microsoft Office",
+    heroSubtitle: "Kompletny przewodnik aktywacji licencji Office za pomoc\u0105 oficjalnego narz\u0119dzia aktywacji Microsoft \u2014 szybko, \u0142atwo i w kilka minut.",
+    metaRead: "5 min czytania", metaUpdated: "Zaktualizowano 2025", metaAuthor: "Zesp\u00f3\u0142 KeyUpNow",
     tocTitle: "W tym przewodniku",
-    toc1: "Otwórz Word i uruchom Kreatora aktywacji", toc2: "Przejdź do narzędzia aktywacji Microsoft", toc3: "Zaloguj się na konto Microsoft", toc4: "Wybierz „Aktywuj produkt Microsoft"", toc5: "Wybierz Microsoft Office i system operacyjny", toc6: "Wybierz wersję Office", toc7: "Skopiuj i wprowadź identyfikator instalacji", toc8: "Wprowadź identyfikatory potwierdzenia", toc9: "Zakończ aktywację",
-    intro: "Oficjalne narzędzie aktywacji Microsoft to jeden z najbardziej niezawodnych sposobów aktywacji licencji Office. Proces jest prosty, zajmuje zaledwie kilka minut i działa ze wszystkimi wersjami Office.",
-    worksWith: "Działa z",
-    s1Title: "Otwórz Word i uruchom Kreatora aktywacji",
-    s1Text: 'Otwórz <strong>Microsoft Word</strong>. Okno <strong>Kreatora aktywacji</strong> powinno pojawić się automatycznie. Wybierz opcję <strong>„Chcę aktywować oprogramowanie telefonicznie"</strong>, a następnie kliknij <strong>Dalej</strong>.',
-    s1Tip: '<strong>Kreator się nie pojawia?</strong> Otwórz Word, przejdź do <strong>Konto</strong> (lewy dolny róg), a następnie kliknij <strong>„Aktywuj produkt"</strong> na czerwonym banerze.',
-    s1Cap: 'Wybierz „Chcę aktywować oprogramowanie telefonicznie" i kliknij Dalej',
-    noteHeader: "Ważne — Przeczytaj",
-    noteText: '<strong>NIE musisz dzwonić do Microsoft!</strong> Microsoft zakończył aktywację telefoniczną. Zamiast tego po prostu odwiedź oficjalne narzędzie aktywacji pod adresem <a href="https://aka.ms/aoh" target="_blank">https://aka.ms/aoh</a> i postępuj zgodnie z instrukcjami na ekranie. Jest szybkie, darmowe i dostępne 24/7.',
-    s2Title: "Przejdź do narzędzia aktywacji", s2Text: "Użyj oficjalnego narzędzia aktywacji online Microsoft:", s2Btn: "Otwórz narzędzie aktywacji — aka.ms/aoh", s2Text2: 'Kliknij <strong>„Zaczynajmy"</strong>, aby rozpocząć.', s2Cap: 'Kliknij „Zaczynajmy"',
-    s3Title: "Zaloguj się na konto Microsoft", s3Text: "Zostaniesz poproszony o zalogowanie się na konto Microsoft. Możesz użyć dowolnego konta — nie musi być powiązane z Office.", s3Cap1: "Wprowadź adres e-mail swojego konta Microsoft", s3Cap2: "Wprowadź hasło",
-    s4Title: "Wybierz „Aktywuj produkt Microsoft"", s4Text: 'Po zalogowaniu wybierz <strong>„Aktywuj produkt Microsoft"</strong>.', s4Cap: "Wybierz „Aktywuj produkt Microsoft"",
-    s5Title: "Wybierz Microsoft Office i system operacyjny", s5Text: 'Wybierz <strong>Microsoft Office</strong> jako produkt. Następnie wybierz system — zazwyczaj <strong>Windows</strong>.', s5Cap: "Wybierz Microsoft Office i system operacyjny (Windows)",
-    s6Title: "Wybierz wersję Office", s6Text: 'Wybierz wersję Office z listy (np. <strong>Office 2024</strong>, <strong>Office 2021</strong>). Pojawi się pole do wpisania <strong>Identyfikatora instalacji</strong>.', s6Cap: "Wybierz wersję Office",
-    s7Title: "Skopiuj i wprowadź identyfikator instalacji", s7Text1: 'Wróć do <strong>Kreatora aktywacji</strong>. Zobaczysz długi ciąg cyfr — to Twój <strong>Identyfikator instalacji</strong>. Skopiuj wszystkie grupy.', s7Cap1: "Skopiuj Identyfikator instalacji z Kreatora (Krok 2)", s7Text2: "Wklej te cyfry w odpowiednie pola na stronie aktywacji.", s7Cap2: "Wprowadź Identyfikator instalacji w narzędziu aktywacji", s7Warn: "<strong>Ważne:</strong> Upewnij się, że wprowadziłeś wszystkie grupy cyfr poprawnie. Jedna błędna cyfra spowoduje wygenerowanie nieprawidłowego identyfikatora.",
-    s8Title: "Wprowadź identyfikatory potwierdzenia", s8Text1: 'Po przesłaniu Microsoft wygeneruje <strong>Identyfikatory potwierdzenia</strong>. Skopiuj je ze strony aktywacji.', s8Cap1: "Microsoft generuje Identyfikatory potwierdzenia — skopiuj je", s8Text2: 'Wróć do Kreatora i wpisz identyfikatory w pola w <strong>Kroku 3</strong>.', s8Cap2: "Wklej Identyfikatory potwierdzenia w Kroku 3",
-    s9Title: "Zakończ aktywację", s9Text: 'Kliknij <strong>„Dalej"</strong> i gotowe! Twój Microsoft Office jest teraz aktywowany.', s9Tip: "<strong>Gotowe!</strong> Twoja licencja Office jest teraz trwale aktywowana na tym urządzeniu. Bez subskrypcji.",
-    ctaTitle: "Potrzebujesz pomocy?", ctaText: "Jeśli napotkasz jakiekolwiek problemy podczas aktywacji, nasz zespół wsparcia chętnie pomoże.", ctaEmail: "Wyślij e-mail", ctaHelp: "Centrum pomocy"
+    toc1: "Otw\u00f3rz Word i uruchom Kreatora aktywacji",
+    toc2: "Przejd\u017a do narz\u0119dzia aktywacji Microsoft",
+    toc3: "Zaloguj si\u0119 na konto Microsoft",
+    toc4: "Wybierz \u201eAktywuj produkt Microsoft\u201d",
+    toc5: "Wybierz Microsoft Office i system operacyjny",
+    toc6: "Wybierz wersj\u0119 Office",
+    toc7: "Skopiuj i wprowad\u017a identyfikator instalacji",
+    toc8: "Wprowad\u017a identyfikatory potwierdzenia",
+    toc9: "Zako\u0144cz aktywacj\u0119",
+    intro: "Oficjalne narz\u0119dzie aktywacji Microsoft to jeden z najbardziej niezawodnych sposob\u00f3w aktywacji licencji Office. Proces jest prosty, zajmuje zaledwie kilka minut i dzia\u0142a ze wszystkimi wersjami Office.",
+    worksWith: "Dzia\u0142a z",
+    s1Title: "Otw\u00f3rz Word i uruchom Kreatora aktywacji",
+    s1Text: "Otw\u00f3rz <strong>Microsoft Word</strong>. Okno <strong>Kreatora aktywacji</strong> powinno pojawi\u0107 si\u0119 automatycznie. Wybierz opcj\u0119 <strong>\u201eCh\u0119 aktywowa\u0107 oprogramowanie telefonicznie\u201d</strong>, a nast\u0119pnie kliknij <strong>Dalej</strong>.",
+    s1Tip: "<strong>Kreator si\u0119 nie pojawia?</strong> Otw\u00f3rz Word, przejd\u017a do <strong>Konto</strong> (lewy dolny r\u00f3g), a nast\u0119pnie kliknij <strong>\u201eAktywuj produkt\u201d</strong> na czerwonym banerze.",
+    s1Cap: "Wybierz \u201eCh\u0119 aktywowa\u0107 oprogramowanie telefonicznie\u201d i kliknij Dalej",
+    noteHeader: "Wa\u017cne \u2014 Przeczytaj",
+    noteText: '<strong>NIE musisz dzwoni\u0107 do Microsoft!</strong> Microsoft zako\u0144czy\u0142 aktywacj\u0119 telefoniczn\u0105. Zamiast tego po prostu odwied\u017a oficjalne narz\u0119dzie aktywacji pod adresem <a href="https://aka.ms/aoh" target="_blank">https://aka.ms/aoh</a> i post\u0119puj zgodnie z instrukcjami na ekranie. Jest szybkie, darmowe i dost\u0119pne 24/7.',
+    s2Title: "Przejd\u017a do narz\u0119dzia aktywacji",
+    s2Text: "U\u017cyj oficjalnego narz\u0119dzia aktywacji online Microsoft:",
+    s2Btn: "Otw\u00f3rz narz\u0119dzie aktywacji \u2014 aka.ms/aoh",
+    s2Text2: "Kliknij <strong>\u201eZaczynajmy\u201d</strong>, aby rozpocz\u0105\u0107.",
+    s2Cap: "Kliknij \u201eZaczynajmy\u201d",
+    s3Title: "Zaloguj si\u0119 na konto Microsoft",
+    s3Text: "Zostaniesz poproszony o zalogowanie si\u0119 na konto Microsoft. Mo\u017cesz u\u017cy\u0107 dowolnego konta \u2014 nie musi by\u0107 powi\u0105zane z Office.",
+    s3Cap1: "Wprowad\u017a adres e-mail swojego konta Microsoft",
+    s3Cap2: "Wprowad\u017a has\u0142o",
+    s4Title: "Wybierz \u201eAktywuj produkt Microsoft\u201d",
+    s4Text: "Po zalogowaniu wybierz <strong>\u201eAktywuj produkt Microsoft\u201d</strong>.",
+    s4Cap: "Wybierz \u201eAktywuj produkt Microsoft\u201d",
+    s5Title: "Wybierz Microsoft Office i system operacyjny",
+    s5Text: "Wybierz <strong>Microsoft Office</strong> jako produkt. Nast\u0119pnie wybierz system \u2014 zazwyczaj <strong>Windows</strong>.",
+    s5Cap: "Wybierz Microsoft Office i system operacyjny (Windows)",
+    s6Title: "Wybierz wersj\u0119 Office",
+    s6Text: "Wybierz wersj\u0119 Office z listy (np. <strong>Office 2024</strong>, <strong>Office 2021</strong>). Pojawi si\u0119 pole do wpisania <strong>Identyfikatora instalacji</strong>.",
+    s6Cap: "Wybierz wersj\u0119 Office",
+    s7Title: "Skopiuj i wprowad\u017a identyfikator instalacji",
+    s7Text1: "Wr\u00f3\u0107 do <strong>Kreatora aktywacji</strong>. Zobaczysz d\u0142ugi ci\u0105g cyfr \u2014 to Tw\u00f3j <strong>Identyfikator instalacji</strong>. Skopiuj wszystkie grupy.",
+    s7Cap1: "Skopiuj Identyfikator instalacji z Kreatora (Krok 2)",
+    s7Text2: "Wklej te cyfry w odpowiednie pola na stronie aktywacji.",
+    s7Cap2: "Wprowad\u017a Identyfikator instalacji w narz\u0119dziu aktywacji",
+    s7Warn: "<strong>Wa\u017cne:</strong> Upewnij si\u0119, \u017ce wprowadzi\u0142e\u015b wszystkie grupy cyfr poprawnie. Jedna b\u0142\u0119dna cyfra spowoduje wygenerowanie nieprawid\u0142owego identyfikatora.",
+    s8Title: "Wprowad\u017a identyfikatory potwierdzenia",
+    s8Text1: "Po przes\u0142aniu Microsoft wygeneruje <strong>Identyfikatory potwierdzenia</strong>. Skopiuj je ze strony aktywacji.",
+    s8Cap1: "Microsoft generuje Identyfikatory potwierdzenia \u2014 skopiuj je",
+    s8Text2: "Wr\u00f3\u0107 do Kreatora i wpisz identyfikatory w pola w <strong>Kroku 3</strong>.",
+    s8Cap2: "Wklej Identyfikatory potwierdzenia w Kroku 3",
+    s9Title: "Zako\u0144cz aktywacj\u0119",
+    s9Text: "Kliknij <strong>\u201eDalej\u201d</strong> i gotowe! Tw\u00f3j Microsoft Office jest teraz aktywowany.",
+    s9Tip: "<strong>Gotowe!</strong> Twoja licencja Office jest teraz trwale aktywowana na tym urz\u0105dzeniu. Bez subskrypcji.",
+    ctaTitle: "Potrzebujesz pomocy?",
+    ctaText: "Je\u015bli napotkasz jakiekolwiek problemy podczas aktywacji, nasz zesp\u00f3\u0142 wsparcia ch\u0119tnie pomo\u017ce.",
+    ctaEmail: "Wy\u015blij e-mail",
+    ctaHelp: "Centrum pomocy"
   }
 };
 
 // ══════════════════════════════════════════════════════
-// LANGUAGE ENGINE
+// INIT — runs when DOM is ready
 // ══════════════════════════════════════════════════════
-var SUPPORTED = ['en','de','fr','es','nl','pl'];
-var COUNTRY_MAP = {
-  DE:'de',AT:'de',CH:'de',LI:'de',
-  FR:'fr',BE:'fr',MC:'fr',LU:'fr',
-  ES:'es',MX:'es',AR:'es',CO:'es',CL:'es',PE:'es',VE:'es',
-  NL:'nl',SR:'nl',
-  PL:'pl',
-  GB:'en',US:'en',AU:'en',CA:'en',NZ:'en',IE:'en',ZA:'en',AE:'en'
-};
+var currentLang = 'en';
 
-function matchLang(code) {
-  if (!code) return null;
-  var short = code.toLowerCase().split('-')[0].split('_')[0];
-  return SUPPORTED.indexOf(short) !== -1 ? short : null;
+// Layer 1: Saved preference
+if (savedLang && SUPPORTED.indexOf(savedLang) !== -1) {
+  currentLang = savedLang;
+}
+// Layer 2: Browser language
+else {
+  var browserLang = matchBrowser();
+  if (browserLang) currentLang = browserLang;
 }
 
-function applyLang(lang) {
-  var strings = T[lang];
-  if (!strings) return;
-  document.documentElement.lang = lang;
-  var els = document.querySelectorAll('[data-i18n]');
-  for (var i = 0; i < els.length; i++) {
-    var key = els[i].getAttribute('data-i18n');
-    if (strings[key]) els[i].innerHTML = strings[key];
-  }
-  var sel = document.getElementById('langSelect');
-  if (sel) sel.value = lang;
-}
+// Apply immediately
+applyLang(currentLang, T);
 
-// Layer 1: Check localStorage for manual preference
-var currentLang = null;
-try { currentLang = localStorage.getItem('kunLang'); } catch(e) {}
-
-// Layer 2: Browser language fallback
-if (!currentLang || SUPPORTED.indexOf(currentLang) === -1) {
-  currentLang = matchLang(navigator.language);
-  if (!currentLang && navigator.languages) {
-    for (var i = 0; i < navigator.languages.length; i++) {
-      currentLang = matchLang(navigator.languages[i]);
-      if (currentLang) break;
-    }
-  }
-  if (!currentLang) currentLang = 'en';
-}
-
-// Apply immediately (Layer 1 or 2)
-applyLang(currentLang);
-
-// Layer 3: IP geolocation async upgrade (only if no manual pref saved)
-var hasManual = false;
-try { hasManual = !!localStorage.getItem('kunLang'); } catch(e) {}
-
-if (!hasManual) {
-  var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://api.country.is', true);
-  xhr.onload = function() {
-    try {
-      var data = JSON.parse(xhr.responseText);
-      if (data && data.country) {
-        var geoLang = COUNTRY_MAP[data.country.toUpperCase()];
-        if (geoLang && SUPPORTED.indexOf(geoLang) !== -1 && geoLang !== currentLang) {
-          currentLang = geoLang;
-          applyLang(currentLang);
+// Layer 3: IP geolocation (async, only if no saved pref)
+if (!savedLang) {
+  try {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://api.country.is', true);
+    xhr.timeout = 4000;
+    xhr.onload = function() {
+      try {
+        var data = JSON.parse(xhr.responseText);
+        if (data && data.country) {
+          var geoLang = COUNTRY_MAP[data.country.toUpperCase()];
+          if (geoLang && SUPPORTED.indexOf(geoLang) !== -1 && geoLang !== currentLang) {
+            currentLang = geoLang;
+            applyLang(currentLang, T);
+          }
         }
-      }
-    } catch(e) {}
-  };
-  xhr.onerror = function() {};
-  xhr.send();
+      } catch(e) {}
+    };
+    xhr.onerror = function() {};
+    xhr.ontimeout = function() {};
+    xhr.send();
+  } catch(e) {}
 }
 
-// Manual selection via native <select>
-document.getElementById('langSelect').addEventListener('change', function() {
-  var lang = this.value;
-  currentLang = lang;
-  try { localStorage.setItem('kunLang', lang); } catch(e) {}
-  applyLang(lang);
-});
+// Manual selection via <select>
+var selectEl = document.getElementById('langSelect');
+if (selectEl) {
+  selectEl.addEventListener('change', function() {
+    currentLang = this.value;
+    try { localStorage.setItem('kunLang', currentLang); } catch(e) {}
+    applyLang(currentLang, T);
+  });
+}
+
+})();
 </script>
 
 </body>
