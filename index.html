@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Activate Microsoft Office | KeyUpNow</title>
+<meta name="description" content="Step-by-step guide to activate Microsoft Office using the official Microsoft activation tool. Quick, easy, and works for Office 2024, 2021, 2019, and 2016.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAFBFC;
+    --surface: #FFFFFF;
+    --surface-alt: #F0F4F8;
+    --border: #E2E8F0;
+    --text: #1A202C;
+    --text-muted: #64748B;
+    --accent: #0078D4;
+    --accent-light: #EBF5FF;
+    --accent-dark: #005A9E;
+    --green: #10B981;
+    --green-light: #ECFDF5;
+    --orange: #F59E0B;
+    --orange-light: #FFFBEB;
+    --red: #EF4444;
+    --red-light: #FEF2F2;
+    --gradient-hero: linear-gradient(135deg, #0078D4 0%, #005A9E 40%, #003A6A 100%);
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+    --radius: 12px;
+    --radius-lg: 20px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  .nav {
+    border-bottom: 1px solid var(--border);
+    padding: 16px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+    background: rgba(255,255,255,0.92);
+  }
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-brand {
+    font-weight: 800;
+    font-size: 1.3rem;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+  }
+  .nav-brand span { color: var(--text); }
+
+  /* ── NATIVE SELECT LANG SWITCHER ── */
+  .lang-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+  }
+  .lang-wrap .globe-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--text-muted);
+    flex-shrink: 0;
+    pointer-events: none;
+  }
+  .lang-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 36px 8px 14px;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+  }
+  .lang-select:hover { border-color: var(--accent); }
+  .lang-select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,120,212,0.15); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--gradient-hero);
+    padding: 80px 24px 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.5;
+  }
+  .hero-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 50px;
+    padding: 6px 18px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 28px;
+    backdrop-filter: blur(8px);
+  }
+  .hero-badge svg { width: 16px; height: 16px; }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    color: white;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    margin-bottom: 18px;
+  }
+  .hero p {
+    font-size: 1.12rem;
+    color: rgba(255,255,255,0.8);
+    max-width: 580px;
+    margin: 0 auto 32px;
+  }
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    color: rgba(255,255,255,0.65);
+    font-size: 0.85rem;
+    flex-wrap: wrap;
+  }
+  .hero-meta span { display: flex; align-items: center; gap: 6px; }
+  .hero-meta svg { width: 15px; height: 15px; }
+
+  /* ── CONTENT ── */
+  .content-wrap {
+    max-width: 820px;
+    margin: -48px auto 80px;
+    padding: 0 24px;
+    position: relative;
+  }
+  .toc-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px 32px;
+    margin-bottom: 40px;
+    box-shadow: var(--shadow-md);
+  }
+  .toc-card h3 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+  .toc-card ol {
+    list-style: none;
+    counter-reset: toc;
+    display: grid;
+    gap: 8px;
+  }
+  .toc-card li { counter-increment: toc; }
+  .toc-card a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.2s;
+  }
+  .toc-card a::before {
+    content: counter(toc);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .toc-card a:hover { background: var(--surface-alt); color: var(--accent); }
+  .article-body {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 48px 48px 56px;
+    box-shadow: var(--shadow-md);
+  }
+  @media (max-width: 640px) { .article-body { padding: 28px 20px 36px; } }
+  .article-body > p { font-size: 1.05rem; color: #374151; margin-bottom: 20px; }
+  .intro-text {
+    font-size: 1.1rem !important;
+    color: var(--text) !important;
+    border-left: 3px solid var(--accent);
+    padding-left: 20px;
+    margin-bottom: 36px !important;
+  }
+  .step { margin-bottom: 40px; scroll-margin-top: 100px; }
+  .step-header { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 16px; }
+  .step-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--gradient-hero);
+    color: white;
+    font-weight: 800;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .step-title { font-size: 1.2rem; font-weight: 700; color: var(--text); line-height: 1.35; padding-top: 8px; }
+  .step-body { margin-left: 60px; }
+  @media (max-width: 640px) { .step-body { margin-left: 0; } }
+  .step-body p { font-size: 1rem; color: #4B5563; margin-bottom: 16px; }
+  .img-frame {
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin: 16px 0 8px;
+    text-align: center;
+  }
+  .img-frame img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+  }
+  .img-caption {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-top: 10px;
+    font-style: italic;
+  }
+  .img-frame + .img-frame { margin-top: 14px; }
+  .info-box {
+    display: flex;
+    gap: 14px;
+    padding: 18px 20px;
+    border-radius: var(--radius);
+    margin: 20px 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .info-box svg { width: 22px; height: 22px; flex-shrink: 0; margin-top: 2px; }
+  .info-box.tip { background: var(--green-light); border: 1px solid #D1FAE5; color: #065F46; }
+  .info-box.tip svg { color: var(--green); }
+  .info-box.warn { background: var(--orange-light); border: 1px solid #FDE68A; color: #92400E; }
+  .info-box.warn svg { color: var(--orange); }
+  .info-box strong { font-weight: 700; }
+
+  /* ── BIG IMPORTANT NOTE ── */
+  .important-note {
+    background: var(--red-light);
+    border: 2px solid #FECACA;
+    border-radius: var(--radius-lg);
+    padding: 28px 28px;
+    margin: 28px 0 12px;
+    position: relative;
+    overflow: hidden;
+  }
+  .important-note::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background: var(--red);
+    border-radius: 4px 0 0 4px;
+  }
+  .important-note-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .important-note-header svg {
+    width: 28px;
+    height: 28px;
+    color: var(--red);
+    flex-shrink: 0;
+  }
+  .important-note-header span {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #991B1B;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .important-note p {
+    font-size: 1.05rem;
+    color: #7F1D1D;
+    line-height: 1.7;
+    margin-bottom: 0;
+  }
+  .important-note a {
+    color: #991B1B;
+    font-weight: 800;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .important-note a:hover { color: var(--red); }
+
+  .link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+    box-shadow: 0 2px 8px rgba(0,120,212,0.3);
+  }
+  .link-btn:hover { background: var(--accent-dark); transform: translateY(-1px); }
+  .link-btn svg { width: 18px; height: 18px; }
+  .step-divider { border: none; border-top: 1px dashed var(--border); margin: 32px 0; }
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--surface-alt);
+    padding: 2px 7px;
+    border-radius: 5px;
+    font-size: 0.88em;
+    border: 1px solid var(--border);
+  }
+  .support-cta {
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    text-align: center;
+    margin-top: 48px;
+  }
+  .support-cta h3 { font-size: 1.35rem; font-weight: 800; margin-bottom: 10px; }
+  .support-cta p { color: var(--text-muted); margin-bottom: 24px; font-size: 1rem; }
+  .support-cta .cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .support-cta a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+  }
+  .support-cta .btn-primary { background: var(--accent); color: white; }
+  .support-cta .btn-primary:hover { background: var(--accent-dark); }
+  .support-cta .btn-secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+  .support-cta .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+  .applies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    margin: 24px 0 36px;
+  }
+  .applies-item {
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  .applies-item .ver { display: block; font-size: 0.78rem; color: var(--text-muted); font-weight: 500; margin-top: 2px; }
+  .footer {
+    background: var(--text);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 32px 24px;
+    font-size: 0.85rem;
+  }
+  .footer a { color: rgba(255,255,255,0.75); text-decoration: none; }
+  html { scroll-behavior: smooth; }
+</style>
+</head>
+<body>
+
+<!-- ════ NAV ════ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">KeyUp<span>Now</span></a>
+    <div class="lang-wrap">
+      <svg class="globe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      <select class="lang-select" id="langSelect">
+        <option value="en">🇬🇧  English</option>
+        <option value="de">🇩🇪  Deutsch</option>
+        <option value="fr">🇫🇷  Français</option>
+        <option value="es">🇪🇸  Español</option>
+        <option value="nl">🇳🇱  Nederlands</option>
+        <option value="pl">🇵🇱  Polski</option>
+      </select>
+    </div>
+  </div>
+</nav>
+
+<!-- ════ HERO ════ -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+      <span data-i18n="heroBadge">Step-by-Step Guide</span>
+    </div>
+    <h1 data-i18n="heroTitle">How to Activate Microsoft Office</h1>
+    <p data-i18n="heroSubtitle">A complete walkthrough to activate your Office license using Microsoft's official activation tool — quick, easy, and takes just a few minutes.</p>
+    <div class="hero-meta">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> <span data-i18n="metaRead">5 min read</span></span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> <span data-i18n="metaUpdated">Updated 2025</span></span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/></svg> <span data-i18n="metaAuthor">By KeyUpNow Team</span></span>
+    </div>
+  </div>
+</header>
+
+<!-- ════ CONTENT ════ -->
+<main class="content-wrap">
+
+  <div class="toc-card">
+    <h3 data-i18n="tocTitle">In This Guide</h3>
+    <ol>
+      <li><a href="#step1" data-i18n="toc1">Open Word & Launch the Activation Wizard</a></li>
+      <li><a href="#step2" data-i18n="toc2">Go to the Microsoft Activation Tool</a></li>
+      <li><a href="#step3" data-i18n="toc3">Sign In to Your Microsoft Account</a></li>
+      <li><a href="#step4" data-i18n="toc4">Select "Activate a Microsoft Product"</a></li>
+      <li><a href="#step5" data-i18n="toc5">Choose Microsoft Office & Your OS</a></li>
+      <li><a href="#step6" data-i18n="toc6">Select Your Office Version</a></li>
+      <li><a href="#step7" data-i18n="toc7">Copy & Enter Your Installation ID</a></li>
+      <li><a href="#step8" data-i18n="toc8">Enter the Confirmation IDs</a></li>
+      <li><a href="#step9" data-i18n="toc9">Complete the Activation</a></li>
+    </ol>
+  </div>
+
+  <article class="article-body">
+
+    <p class="intro-text" data-i18n="intro">Microsoft's official activation tool is one of the most reliable ways to activate your Office license. The process is simple, takes just a few minutes, and works for all Office versions. Follow the steps below to get your Office up and running.</p>
+
+    <h3 style="font-size:1rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;font-weight:700;margin-bottom:12px;" data-i18n="worksWith">Works With</h3>
+    <div class="applies-grid">
+      <div class="applies-item">Office 2024 <span class="ver">Home & Business</span></div>
+      <div class="applies-item">Office 2021 <span class="ver">Professional Plus</span></div>
+      <div class="applies-item">Office 2019 <span class="ver">All Editions</span></div>
+      <div class="applies-item">Office 2016 <span class="ver">All Editions</span></div>
+    </div>
+
+    <!-- ═══ STEP 1 ═══ -->
+    <div class="step" id="step1">
+      <div class="step-header">
+        <div class="step-num">1</div>
+        <div class="step-title" data-i18n="s1Title">Open Word & Launch the Activation Wizard</div>
+      </div>
+      <div class="step-body">
+        <p data-i18n="s1Text">Open <strong>Microsoft Word</strong>. The <strong>Activation Wizard</strong> pop-up should appear automatically. Select the option that says <strong>"I want to activate the software by telephone"</strong>, then click <strong>Next</strong>.</p>
+        <div class="info-box tip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          <div data-i18n="s1Tip"><strong>Wizard not appearing?</strong> Open Word, go to <strong>Account</strong> (bottom-left), then click <strong>"Activate Product"</strong> on the red banner under Product Information.</div>
+        </div>
+        <div class="img-frame">
+          <img src="https://mycodes24.com/wp-content/uploads/2023/11/359d7677f9117920c6d4e95d15ca0a08.png" alt="Activation Wizard" loading="lazy">
+          <div class="img-caption" data-i18n="s1Cap">Select "I want to activate the software by telephone" and click Next</div>
+        </div>
+
+        <!-- ══ BIG IMPORTANT NOTE ══ -->
+        <div class="important-note">
+          <div class="important-note-header">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <span data-i18n="noteHeader">Important — Please Read</span>
+          </div>
+          <p data-i18n="noteText"><strong>You do NOT need to call Microsoft!</strong> Microsoft has discontinued phone activation. Instead, simply visit the official activation tool at <a href="https://aka.ms/aoh" target="_blank">https://aka.ms/aoh</a> and follow the on-screen steps to complete your activation online. It's fast, free, and works 24/7.</p>
+        </div>
+      </div>
+    </div>
+    <hr class="step-divider">
+
+    <!-- ═══ STEP 2 ═══ -->
+    <div class="step" id="step2">
+      <div class="step-header">
+        <div class="step-num">2</div>
+        <div class="step-title" data-i18n="s2Title">Go to the Microsoft Activation Tool</div>
+      </div>
+      <div class="step-body">
+        <p data-i18n="s2Text">Use Microsoft's official online activation tool to complete your activation:</p>
+        <div style="margin: 20px 0;">
+          <a href="https://aka.ms/aoh" target="_blank" class="link-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            <span data-i18n="s2Btn">Open Microsoft Activation Tool — aka.ms/aoh</span>
+          </a>
+        </div>
+        <p data-i18n="s2Text2">Click <strong>"Let's Get Started"</strong> to begin the process.</p>
+        <div class="img-frame">
+          <img src="https://blog.mycodes24.com/wp-content/uploads/2025/12/5.png" alt="Microsoft Activation Tool" loading="lazy">
+          <div class="img-caption" data-i18n="s2Cap">Click "Let's Get Started" on the Microsoft Activation Tool</div>
+        </div>
+      </div>
+    </div>
+    <hr class="step-divider">
+
+    <!-- ═══ STEP 3 ═══ -->
+    <div class="step" id="step3">
+      <div class="step-header">
+        <div class="step-num">3</div>
+        <div class="step-title" data-i18n="s3Title">Sign In to Your Microsoft Account</div>
+      </div>
+      <div class="step-body">
+        <p data-i18n="s3Text">You'll be asked to sign in with your Microsoft account. Use any Microsoft account — it doesn't need to match the one tied to Office. If you don't have one, you can create a free account.</p>
+        <div class="img-frame">
+          <img src="https://blog.mycodes24.com/wp-content/uploads/2025/12/3.png" alt="Microsoft sign-in" loading="lazy">
+          <div class="img-caption" data-i18n="s3Cap1">Enter your Microsoft account email address</div>
+        </div>
+        <div class="img-frame">
+          <img src="https://blog.mycodes24.com/wp-content/uploads/2025/12/4.png" alt="Microsoft password" loading="lazy">
+          <div class="img-caption" data-i18n="s3Cap2">Enter your password to complete sign-in</div>
+        </div>
+      </div>
+    </div>
+    <hr class="step-divider">
+
+    <!-- ═══ STEP 4 ═══ -->
+    <div class="step" id="step4">
+      <div class="step-header">
+        <div class="step-num">4</div>
+        <div class="step-title" data-i18n="s4Title">Select "Activate a Microsoft Product"</div>
+      </div>
+      <div class="step-body">
+        <p data-i18n="s4Text">After signing in, you'll see a few options. Choose <strong>"Activate a Microsoft Product"</strong> to proceed.</p>
+        <div class="img-frame">
+          <img src="https://blog.mycodes24.com/wp-content/uploads/2025/12/1.png" alt="Activate a Microsoft Product" loading="lazy">
+          <div class="img-caption" data-i18n="s4Cap">Select "Activate a Microsoft Product"</div>
+        </div>
+      </div>
+    </div>
+    <hr class="step-divider">
+
+    <!-- ═══ STEP 5 ═══ -->
+    <div class="step" id="step5">
+      <div class="step-header">
+        <div class="step-num">5</div>
+        <div class="step-title" data-i18n="s5Title">Choose Microsoft Office & Your Operating System</div>
+      </div>
+      <div class="step-body">
+        <p data-i18n="s5Text">Select <strong>Microsoft Office</strong> as the product you want to activate. Then pick your operating system — typically <strong>Windows</strong>.</p>
+        <div class="img-frame">
+          <img src="https://blog.mycodes24.com/wp-content/uploads/2025/12/2.png" alt="Choose Office and OS" loading="lazy">
+          <div class="img-caption" data-i18n="s5Cap">Select Microsoft Office and your operating system (Windows)</div>
+        </div>
+      </div>
+    </div>
+    <hr class="step-divider">
+
+    <!-- ═══ STEP 6 ═══ -->
+    <div class="step" id="step6">
+      <div class="step-header">
+        <div class="step-num">6</div>
+        <div class="step-title" data-i18n="s6Title">Select Your Office Version</div>
+      </div>
+      <div class="step-body">
+        <p data-i18n="s6Text">Choose your specific Office version from the list (e.g., <strong>Office 2024</strong>, <strong>Office 2021</strong>, etc.). You'll then see a field where you need to enter your <strong>Installation ID</strong>.</p>
+        <div class="img-frame">
+          <img src="https://blog.mycodes24.com/wp-content/uploads/2025/12/8.png" alt="Select Office version" loading="lazy">
+          <div class="img-caption" data-i18n="s6Cap">Select your Office version — e.g. Office 2024</div>
+        </div>
+      </div>
+    </div>
+    <hr class="step-divider">
+
+    <!-- ═══ STEP 7 ═══ -->
+    <div class="step" id="step7">
+      <div class="step-header">
+        <div class="step-num">7</div>
+        <div class="step-title" data-i18n="s7Title">Copy & Enter Your Installation ID</div>
+      </div>
+      <div class="step-body">
+        <p data-i18n="s7Text1">Go back to the <strong>Activation Wizard</strong> in your Office application. You'll see a long series of numbers — this is your <strong>Installation ID</strong>. Copy all the number groups.</p>
+        <div class="img-frame">
+          <img src="https://mycodes24.com/wp-content/uploads/2023/11/1ef38642df694ee51f53fe77a40c0d61.png" alt="Installation ID" loading="lazy">
+          <div class="img-caption" data-i18n="s7Cap1">Copy the Installation ID from the Activation Wizard (Step 2)</div>
+        </div>
+        <p data-i18n="s7Text2">Now paste these numbers into the corresponding fields on the Microsoft activation page.</p>
+        <div class="img-frame">
+          <img src="https://blog.mycodes24.com/wp-content/uploads/2025/12/7.png" alt="Enter Installation ID" loading="lazy">
+          <div class="img-caption" data-i18n="s7Cap2">Enter the Installation ID on the Microsoft activation tool</div>
+        </div>
+        <div class="info-box warn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <div data-i18n="s7Warn"><strong>Important:</strong> Make sure you enter all the number groups correctly. A single wrong digit will generate an invalid Confirmation ID.</div>
+        </div>
+      </div>
+    </div>
+    <hr class="step-divider">
+
+    <!-- ═══ STEP 8 ═══ -->
+    <div class="step" id="step8">
+      <div class="step-header">
+        <div class="step-num">8</div>
+        <div class="step-title" data-i18n="s8Title">Enter the Confirmation IDs</div>
+      </div>
+      <div class="step-body">
+        <p data-i18n="s8Text1">After submitting your Installation ID, Microsoft will generate a set of <strong>Confirmation IDs</strong>. Copy them from the activation page.</p>
+        <div class="img-frame">
+          <img src="https://blog.mycodes24.com/wp-content/uploads/2025/12/9-1.png" alt="Confirmation IDs" loading="lazy">
+          <div class="img-caption" data-i18n="s8Cap1">Microsoft generates your Confirmation IDs — copy these numbers</div>
+        </div>
+        <p data-i18n="s8Text2">Now go back to the Activation Wizard in Office and enter these IDs into the boxes in <strong>Step 3</strong> of the wizard.</p>
+        <div class="img-frame">
+          <img src="https://mycodes24.com/wp-content/uploads/2023/11/Microsoft-Office-Activation-Wizard1.png" alt="Paste Confirmation IDs" loading="lazy">
+          <div class="img-caption" data-i18n="s8Cap2">Paste the Confirmation IDs into Step 3 of the Activation Wizard</div>
+        </div>
+      </div>
+    </div>
+    <hr class="step-divider">
+
+    <!-- ═══ STEP 9 ═══ -->
+    <div class="step" id="step9">
+      <div class="step-header">
+        <div class="step-num">9</div>
+        <div class="step-title" data-i18n="s9Title">Complete the Activation</div>
+      </div>
+      <div class="step-body">
+        <p data-i18n="s9Text">Click <strong>"Next"</strong> and you're done! Your Microsoft Office is now activated and ready to use. You should see a confirmation message saying the activation was successful.</p>
+        <div class="info-box tip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <div data-i18n="s9Tip"><strong>You're all set!</strong> Your Office license is now permanently activated on this device. No subscription required — it's yours to keep.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUPPORT -->
+    <div class="support-cta">
+      <h3 data-i18n="ctaTitle">Need Help?</h3>
+      <p data-i18n="ctaText">If you encounter any issues or error messages during activation, our support team is here to help.</p>
+      <div class="cta-buttons">
+        <a href="mailto:support@keyupnow.com" class="btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span data-i18n="ctaEmail">Email Support</span>
+        </a>
+        <a href="/support" class="btn-secondary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <span data-i18n="ctaHelp">Visit Help Center</span>
+        </a>
+      </div>
+    </div>
+
+  </article>
+</main>
+
+<footer class="footer">
+  <p>&copy; 2025 <a href="/">KeyUpNow</a>. All rights reserved. Microsoft Office is a registered trademark of Microsoft Corporation.</p>
+</footer>
+
+<script>
+// ══════════════════════════════════════════════════════
+// i18n TRANSLATIONS
+// ══════════════════════════════════════════════════════
+var T = {
+  en: {
+    heroBadge: "Step-by-Step Guide",
+    heroTitle: "How to Activate Microsoft Office",
+    heroSubtitle: "A complete walkthrough to activate your Office license using Microsoft's official activation tool — quick, easy, and takes just a few minutes.",
+    metaRead: "5 min read",
+    metaUpdated: "Updated 2025",
+    metaAuthor: "By KeyUpNow Team",
+    tocTitle: "In This Guide",
+    toc1: "Open Word & Launch the Activation Wizard",
+    toc2: "Go to the Microsoft Activation Tool",
+    toc3: "Sign In to Your Microsoft Account",
+    toc4: 'Select "Activate a Microsoft Product"',
+    toc5: "Choose Microsoft Office & Your OS",
+    toc6: "Select Your Office Version",
+    toc7: "Copy & Enter Your Installation ID",
+    toc8: "Enter the Confirmation IDs",
+    toc9: "Complete the Activation",
+    intro: "Microsoft's official activation tool is one of the most reliable ways to activate your Office license. The process is simple, takes just a few minutes, and works for all Office versions. Follow the steps below to get your Office up and running.",
+    worksWith: "Works With",
+    s1Title: "Open Word & Launch the Activation Wizard",
+    s1Text: 'Open <strong>Microsoft Word</strong>. The <strong>Activation Wizard</strong> pop-up should appear automatically. Select the option that says <strong>"I want to activate the software by telephone"</strong>, then click <strong>Next</strong>.',
+    s1Tip: '<strong>Wizard not appearing?</strong> Open Word, go to <strong>Account</strong> (bottom-left), then click <strong>"Activate Product"</strong> on the red banner under Product Information.',
+    s1Cap: 'Select "I want to activate the software by telephone" and click Next',
+    noteHeader: "Important — Please Read",
+    noteText: '<strong>You do NOT need to call Microsoft!</strong> Microsoft has discontinued phone activation. Instead, simply visit the official activation tool at <a href="https://aka.ms/aoh" target="_blank">https://aka.ms/aoh</a> and follow the on-screen steps to complete your activation online. It\'s fast, free, and works 24/7.',
+    s2Title: "Go to the Microsoft Activation Tool",
+    s2Text: "Use Microsoft's official online activation tool to complete your activation:",
+    s2Btn: "Open Microsoft Activation Tool — aka.ms/aoh",
+    s2Text2: 'Click <strong>"Let\'s Get Started"</strong> to begin the process.',
+    s2Cap: 'Click "Let\'s Get Started" on the Microsoft Activation Tool',
+    s3Title: "Sign In to Your Microsoft Account",
+    s3Text: "You'll be asked to sign in with your Microsoft account. Use any Microsoft account — it doesn't need to match the one tied to Office. If you don't have one, you can create a free account.",
+    s3Cap1: "Enter your Microsoft account email address",
+    s3Cap2: "Enter your password to complete sign-in",
+    s4Title: 'Select "Activate a Microsoft Product"',
+    s4Text: 'After signing in, you\'ll see a few options. Choose <strong>"Activate a Microsoft Product"</strong> to proceed.',
+    s4Cap: 'Select "Activate a Microsoft Product"',
+    s5Title: "Choose Microsoft Office & Your Operating System",
+    s5Text: 'Select <strong>Microsoft Office</strong> as the product you want to activate. Then pick your operating system — typically <strong>Windows</strong>.',
+    s5Cap: "Select Microsoft Office and your operating system (Windows)",
+    s6Title: "Select Your Office Version",
+    s6Text: 'Choose your specific Office version from the list (e.g., <strong>Office 2024</strong>, <strong>Office 2021</strong>, etc.). You\'ll then see a field where you need to enter your <strong>Installation ID</strong>.',
+    s6Cap: "Select your Office version — e.g. Office 2024",
+    s7Title: "Copy & Enter Your Installation ID",
+    s7Text1: 'Go back to the <strong>Activation Wizard</strong> in your Office application. You\'ll see a long series of numbers — this is your <strong>Installation ID</strong>. Copy all the number groups.',
+    s7Cap1: "Copy the Installation ID from the Activation Wizard (Step 2)",
+    s7Text2: "Now paste these numbers into the corresponding fields on the Microsoft activation page.",
+    s7Cap2: "Enter the Installation ID on the Microsoft activation tool",
+    s7Warn: "<strong>Important:</strong> Make sure you enter all the number groups correctly. A single wrong digit will generate an invalid Confirmation ID.",
+    s8Title: "Enter the Confirmation IDs",
+    s8Text1: 'After submitting your Installation ID, Microsoft will generate a set of <strong>Confirmation IDs</strong>. Copy them from the activation page.',
+    s8Cap1: "Microsoft generates your Confirmation IDs — copy these numbers",
+    s8Text2: 'Now go back to the Activation Wizard in Office and enter these IDs into the boxes in <strong>Step 3</strong> of the wizard.',
+    s8Cap2: "Paste the Confirmation IDs into Step 3 of the Activation Wizard",
+    s9Title: "Complete the Activation",
+    s9Text: 'Click <strong>"Next"</strong> and you\'re done! Your Microsoft Office is now activated and ready to use. You should see a confirmation message saying the activation was successful.',
+    s9Tip: "<strong>You're all set!</strong> Your Office license is now permanently activated on this device. No subscription required — it's yours to keep.",
+    ctaTitle: "Need Help?",
+    ctaText: "If you encounter any issues or error messages during activation, our support team is here to help.",
+    ctaEmail: "Email Support",
+    ctaHelp: "Visit Help Center"
+  },
+  de: {
+    heroBadge: "Schritt-für-Schritt-Anleitung",
+    heroTitle: "So aktivieren Sie Microsoft Office",
+    heroSubtitle: "Eine vollständige Anleitung zur Aktivierung Ihrer Office-Lizenz mit dem offiziellen Microsoft-Aktivierungstool — schnell, einfach und in wenigen Minuten erledigt.",
+    metaRead: "5 Min. Lesezeit", metaUpdated: "Aktualisiert 2025", metaAuthor: "Vom KeyUpNow Team",
+    tocTitle: "In dieser Anleitung",
+    toc1: "Word öffnen & den Aktivierungsassistenten starten", toc2: "Zum Microsoft-Aktivierungstool gehen", toc3: "Bei Ihrem Microsoft-Konto anmelden", toc4: '"Ein Microsoft-Produkt aktivieren" auswählen', toc5: "Microsoft Office & Ihr Betriebssystem wählen", toc6: "Ihre Office-Version auswählen", toc7: "Installations-ID kopieren & eingeben", toc8: "Bestätigungs-IDs eingeben", toc9: "Aktivierung abschließen",
+    intro: "Das offizielle Aktivierungstool von Microsoft ist eine der zuverlässigsten Methoden zur Aktivierung Ihrer Office-Lizenz. Der Vorgang ist einfach, dauert nur wenige Minuten und funktioniert für alle Office-Versionen.",
+    worksWith: "Kompatibel mit",
+    s1Title: "Word öffnen & den Aktivierungsassistenten starten",
+    s1Text: 'Öffnen Sie <strong>Microsoft Word</strong>. Das Pop-up des <strong>Aktivierungsassistenten</strong> sollte automatisch erscheinen. Wählen Sie die Option <strong>„Ich möchte die Software telefonisch aktivieren"</strong> und klicken Sie auf <strong>Weiter</strong>.',
+    s1Tip: '<strong>Assistent erscheint nicht?</strong> Öffnen Sie Word, gehen Sie zu <strong>Konto</strong> (unten links) und klicken Sie auf <strong>„Produkt aktivieren"</strong> im roten Banner unter Produktinformationen.',
+    s1Cap: '„Ich möchte die Software telefonisch aktivieren" auswählen und auf Weiter klicken',
+    noteHeader: "Wichtig — Bitte lesen",
+    noteText: '<strong>Sie müssen Microsoft NICHT anrufen!</strong> Microsoft hat die telefonische Aktivierung eingestellt. Besuchen Sie stattdessen einfach das offizielle Aktivierungstool unter <a href="https://aka.ms/aoh" target="_blank">https://aka.ms/aoh</a> und folgen Sie den Anweisungen auf dem Bildschirm. Es ist schnell, kostenlos und rund um die Uhr verfügbar.',
+    s2Title: "Zum Microsoft-Aktivierungstool gehen", s2Text: "Verwenden Sie das offizielle Online-Aktivierungstool von Microsoft:", s2Btn: "Microsoft-Aktivierungstool öffnen — aka.ms/aoh", s2Text2: 'Klicken Sie auf <strong>„Los geht\'s"</strong>, um den Vorgang zu starten.', s2Cap: '„Los geht\'s" auf dem Microsoft-Aktivierungstool klicken',
+    s3Title: "Bei Ihrem Microsoft-Konto anmelden", s3Text: "Sie werden aufgefordert, sich mit Ihrem Microsoft-Konto anzumelden. Sie können jedes Microsoft-Konto verwenden — es muss nicht mit dem Office-Konto übereinstimmen.", s3Cap1: "Geben Sie Ihre Microsoft-Konto-E-Mail-Adresse ein", s3Cap2: "Geben Sie Ihr Passwort ein",
+    s4Title: '„Ein Microsoft-Produkt aktivieren"', s4Text: 'Nach der Anmeldung sehen Sie mehrere Optionen. Wählen Sie <strong>„Ein Microsoft-Produkt aktivieren"</strong>.', s4Cap: '„Ein Microsoft-Produkt aktivieren" auswählen',
+    s5Title: "Microsoft Office & Ihr Betriebssystem wählen", s5Text: 'Wählen Sie <strong>Microsoft Office</strong> als das zu aktivierende Produkt. Wählen Sie dann Ihr Betriebssystem — normalerweise <strong>Windows</strong>.', s5Cap: "Microsoft Office und Ihr Betriebssystem auswählen (Windows)",
+    s6Title: "Ihre Office-Version auswählen", s6Text: 'Wählen Sie Ihre Office-Version aus der Liste (z.B. <strong>Office 2024</strong>, <strong>Office 2021</strong>, usw.). Anschließend sehen Sie ein Feld für Ihre <strong>Installations-ID</strong>.', s6Cap: "Ihre Office-Version auswählen — z.B. Office 2024",
+    s7Title: "Installations-ID kopieren & eingeben", s7Text1: 'Gehen Sie zurück zum <strong>Aktivierungsassistenten</strong>. Sie sehen eine lange Zahlenreihe — das ist Ihre <strong>Installations-ID</strong>. Kopieren Sie alle Zahlengruppen.', s7Cap1: "Die Installations-ID aus dem Aktivierungsassistenten kopieren", s7Text2: "Fügen Sie diese Zahlen in die entsprechenden Felder auf der Microsoft-Aktivierungsseite ein.", s7Cap2: "Die Installations-ID im Microsoft-Aktivierungstool eingeben", s7Warn: "<strong>Wichtig:</strong> Stellen Sie sicher, dass Sie alle Zahlengruppen korrekt eingeben. Eine einzige falsche Ziffer führt zu einer ungültigen Bestätigungs-ID.",
+    s8Title: "Bestätigungs-IDs eingeben", s8Text1: 'Nach Eingabe Ihrer Installations-ID generiert Microsoft <strong>Bestätigungs-IDs</strong>. Kopieren Sie diese von der Aktivierungsseite.', s8Cap1: "Microsoft generiert Ihre Bestätigungs-IDs — kopieren Sie diese Zahlen", s8Text2: 'Gehen Sie zurück zum Aktivierungsassistenten und geben Sie die IDs in die Felder in <strong>Schritt 3</strong> ein.', s8Cap2: "Bestätigungs-IDs in Schritt 3 einfügen",
+    s9Title: "Aktivierung abschließen", s9Text: 'Klicken Sie auf <strong>„Weiter"</strong> — fertig! Ihr Microsoft Office ist jetzt aktiviert und einsatzbereit.', s9Tip: "<strong>Geschafft!</strong> Ihre Office-Lizenz ist jetzt dauerhaft auf diesem Gerät aktiviert. Kein Abonnement erforderlich.",
+    ctaTitle: "Brauchen Sie Hilfe?", ctaText: "Falls Probleme oder Fehlermeldungen bei der Aktivierung auftreten, hilft Ihnen unser Support-Team gerne weiter.", ctaEmail: "E-Mail-Support", ctaHelp: "Hilfecenter besuchen"
+  },
+  fr: {
+    heroBadge: "Guide étape par étape",
+    heroTitle: "Comment activer Microsoft Office",
+    heroSubtitle: "Un guide complet pour activer votre licence Office à l'aide de l'outil d'activation officiel de Microsoft — rapide, simple et en quelques minutes.",
+    metaRead: "5 min de lecture", metaUpdated: "Mis à jour 2025", metaAuthor: "Par l'équipe KeyUpNow",
+    tocTitle: "Dans ce guide",
+    toc1: "Ouvrir Word et lancer l'assistant d'activation", toc2: "Accéder à l'outil d'activation Microsoft", toc3: "Se connecter à votre compte Microsoft", toc4: "Sélectionner « Activer un produit Microsoft »", toc5: "Choisir Microsoft Office et votre système", toc6: "Sélectionner votre version d'Office", toc7: "Copier et saisir votre ID d'installation", toc8: "Saisir les ID de confirmation", toc9: "Terminer l'activation",
+    intro: "L'outil d'activation officiel de Microsoft est l'une des méthodes les plus fiables pour activer votre licence Office. Le processus est simple, ne prend que quelques minutes et fonctionne pour toutes les versions d'Office.",
+    worksWith: "Compatible avec",
+    s1Title: "Ouvrir Word et lancer l'assistant d'activation",
+    s1Text: 'Ouvrez <strong>Microsoft Word</strong>. L\'<strong>assistant d\'activation</strong> devrait apparaître automatiquement. Sélectionnez l\'option <strong>« Je souhaite activer le logiciel par téléphone »</strong>, puis cliquez sur <strong>Suivant</strong>.',
+    s1Tip: '<strong>L\'assistant n\'apparaît pas ?</strong> Ouvrez Word, allez dans <strong>Compte</strong> (en bas à gauche), puis cliquez sur <strong>« Activer le produit »</strong> sur la bannière rouge.',
+    s1Cap: "Sélectionnez « Je souhaite activer le logiciel par téléphone » et cliquez sur Suivant",
+    noteHeader: "Important — À lire",
+    noteText: '<strong>Vous n\'avez PAS besoin d\'appeler Microsoft !</strong> Microsoft a arrêté l\'activation par téléphone. Visitez simplement l\'outil d\'activation officiel à <a href="https://aka.ms/aoh" target="_blank">https://aka.ms/aoh</a> et suivez les instructions à l\'écran. C\'est rapide, gratuit et disponible 24h/24.',
+    s2Title: "Accéder à l'outil d'activation Microsoft", s2Text: "Utilisez l'outil d'activation en ligne officiel de Microsoft :", s2Btn: "Ouvrir l'outil d'activation — aka.ms/aoh", s2Text2: 'Cliquez sur <strong>« Commencer »</strong> pour démarrer.', s2Cap: "Cliquez sur « Commencer »",
+    s3Title: "Se connecter à votre compte Microsoft", s3Text: "Vous serez invité à vous connecter avec votre compte Microsoft. Utilisez n'importe quel compte — il n'a pas besoin de correspondre à celui lié à Office.", s3Cap1: "Entrez l'adresse e-mail de votre compte Microsoft", s3Cap2: "Entrez votre mot de passe",
+    s4Title: "Sélectionner « Activer un produit Microsoft »", s4Text: 'Après la connexion, plusieurs options apparaissent. Choisissez <strong>« Activer un produit Microsoft »</strong>.', s4Cap: "Sélectionnez « Activer un produit Microsoft »",
+    s5Title: "Choisir Microsoft Office et votre système d'exploitation", s5Text: 'Sélectionnez <strong>Microsoft Office</strong> comme produit à activer. Puis choisissez votre système — généralement <strong>Windows</strong>.', s5Cap: "Sélectionnez Microsoft Office et votre système (Windows)",
+    s6Title: "Sélectionner votre version d'Office", s6Text: 'Choisissez votre version d\'Office dans la liste (ex. <strong>Office 2024</strong>, <strong>Office 2021</strong>). Un champ apparaîtra pour votre <strong>ID d\'installation</strong>.', s6Cap: "Sélectionnez votre version d'Office",
+    s7Title: "Copier et saisir votre ID d'installation", s7Text1: 'Retournez à l\'<strong>assistant d\'activation</strong>. Vous verrez une longue série de chiffres — c\'est votre <strong>ID d\'installation</strong>. Copiez tous les groupes.', s7Cap1: "Copiez l'ID d'installation depuis l'assistant", s7Text2: "Collez ces chiffres dans les champs correspondants sur la page d'activation.", s7Cap2: "Saisissez l'ID d'installation dans l'outil d'activation", s7Warn: "<strong>Important :</strong> Assurez-vous de saisir correctement tous les groupes de chiffres. Un seul chiffre erroné générera un ID de confirmation invalide.",
+    s8Title: "Saisir les ID de confirmation", s8Text1: 'Après soumission, Microsoft générera des <strong>ID de confirmation</strong>. Copiez-les depuis la page d\'activation.', s8Cap1: "Microsoft génère vos ID de confirmation — copiez ces chiffres", s8Text2: 'Retournez à l\'assistant et saisissez les ID dans les cases de l\'<strong>Étape 3</strong>.', s8Cap2: "Collez les ID de confirmation dans l'Étape 3",
+    s9Title: "Terminer l'activation", s9Text: 'Cliquez sur <strong>« Suivant »</strong> et c\'est terminé ! Votre Microsoft Office est maintenant activé.', s9Tip: "<strong>C'est fait !</strong> Votre licence Office est maintenant activée de façon permanente. Aucun abonnement nécessaire.",
+    ctaTitle: "Besoin d'aide ?", ctaText: "Si vous rencontrez des problèmes lors de l'activation, notre équipe d'assistance est là pour vous aider.", ctaEmail: "Envoyer un e-mail", ctaHelp: "Centre d'aide"
+  },
+  es: {
+    heroBadge: "Guía paso a paso",
+    heroTitle: "Cómo activar Microsoft Office",
+    heroSubtitle: "Una guía completa para activar tu licencia de Office usando la herramienta de activación oficial de Microsoft — rápido, fácil y en solo unos minutos.",
+    metaRead: "5 min de lectura", metaUpdated: "Actualizado 2025", metaAuthor: "Por el equipo KeyUpNow",
+    tocTitle: "En esta guía",
+    toc1: "Abrir Word e iniciar el Asistente de activación", toc2: "Ir a la herramienta de activación de Microsoft", toc3: "Iniciar sesión en tu cuenta de Microsoft", toc4: "Seleccionar «Activar un producto de Microsoft»", toc5: "Elegir Microsoft Office y tu sistema operativo", toc6: "Seleccionar tu versión de Office", toc7: "Copiar e introducir tu ID de instalación", toc8: "Introducir los ID de confirmación", toc9: "Completar la activación",
+    intro: "La herramienta de activación oficial de Microsoft es una de las formas más fiables de activar tu licencia de Office. El proceso es sencillo, solo tarda unos minutos y funciona para todas las versiones.",
+    worksWith: "Compatible con",
+    s1Title: "Abrir Word e iniciar el Asistente de activación",
+    s1Text: 'Abre <strong>Microsoft Word</strong>. El <strong>Asistente de activación</strong> debería aparecer automáticamente. Selecciona la opción <strong>«Deseo activar el software por teléfono»</strong> y haz clic en <strong>Siguiente</strong>.',
+    s1Tip: '<strong>¿No aparece el asistente?</strong> Abre Word, ve a <strong>Cuenta</strong> (abajo a la izquierda) y haz clic en <strong>«Activar producto»</strong> en el banner rojo.',
+    s1Cap: 'Selecciona «Deseo activar el software por teléfono» y haz clic en Siguiente',
+    noteHeader: "Importante — Por favor, lee esto",
+    noteText: '<strong>¡NO necesitas llamar a Microsoft!</strong> Microsoft ha dejado de ofrecer la activación por teléfono. En su lugar, simplemente visita la herramienta oficial en <a href="https://aka.ms/aoh" target="_blank">https://aka.ms/aoh</a> y sigue los pasos en pantalla. Es rápido, gratuito y funciona las 24 horas.',
+    s2Title: "Ir a la herramienta de activación", s2Text: "Usa la herramienta de activación en línea oficial de Microsoft:", s2Btn: "Abrir herramienta de activación — aka.ms/aoh", s2Text2: 'Haz clic en <strong>«Empecemos»</strong> para iniciar.', s2Cap: 'Haz clic en «Empecemos»',
+    s3Title: "Iniciar sesión en tu cuenta de Microsoft", s3Text: "Se te pedirá que inicies sesión con tu cuenta de Microsoft. Puedes usar cualquier cuenta — no tiene que coincidir con la de Office.", s3Cap1: "Introduce la dirección de correo de tu cuenta Microsoft", s3Cap2: "Introduce tu contraseña",
+    s4Title: "Seleccionar «Activar un producto de Microsoft»", s4Text: 'Después de iniciar sesión, elige <strong>«Activar un producto de Microsoft»</strong>.', s4Cap: "Selecciona «Activar un producto de Microsoft»",
+    s5Title: "Elegir Microsoft Office y tu sistema operativo", s5Text: 'Selecciona <strong>Microsoft Office</strong> como producto. Luego elige tu sistema operativo — normalmente <strong>Windows</strong>.', s5Cap: "Selecciona Microsoft Office y tu sistema operativo (Windows)",
+    s6Title: "Seleccionar tu versión de Office", s6Text: 'Elige tu versión de Office de la lista (ej. <strong>Office 2024</strong>, <strong>Office 2021</strong>). Verás un campo para tu <strong>ID de instalación</strong>.', s6Cap: "Selecciona tu versión de Office",
+    s7Title: "Copiar e introducir tu ID de instalación", s7Text1: 'Vuelve al <strong>Asistente de activación</strong>. Verás una larga serie de números — es tu <strong>ID de instalación</strong>. Copia todos los grupos.', s7Cap1: "Copia el ID de instalación del Asistente (Paso 2)", s7Text2: "Pega estos números en los campos correspondientes de la página de activación.", s7Cap2: "Introduce el ID de instalación en la herramienta", s7Warn: "<strong>Importante:</strong> Asegúrate de introducir correctamente todos los grupos de números. Un solo dígito incorrecto generará un ID de confirmación inválido.",
+    s8Title: "Introducir los ID de confirmación", s8Text1: 'Después de enviar tu ID, Microsoft generará <strong>ID de confirmación</strong>. Cópialos de la página.', s8Cap1: "Microsoft genera tus ID de confirmación — copia estos números", s8Text2: 'Vuelve al Asistente e introduce los ID en las casillas del <strong>Paso 3</strong>.', s8Cap2: "Pega los ID de confirmación en el Paso 3",
+    s9Title: "Completar la activación", s9Text: 'Haz clic en <strong>«Siguiente»</strong> ¡y listo! Tu Microsoft Office está ahora activado.', s9Tip: "<strong>¡Todo listo!</strong> Tu licencia Office está activada permanentemente en este dispositivo. Sin suscripción.",
+    ctaTitle: "¿Necesitas ayuda?", ctaText: "Si tienes algún problema durante la activación, nuestro equipo de soporte está aquí para ayudarte.", ctaEmail: "Enviar correo", ctaHelp: "Centro de ayuda"
+  },
+  nl: {
+    heroBadge: "Stap-voor-stap handleiding",
+    heroTitle: "Hoe Microsoft Office te activeren",
+    heroSubtitle: "Een complete handleiding om uw Office-licentie te activeren met de officiële Microsoft-activeringstool — snel, eenvoudig en in enkele minuten.",
+    metaRead: "5 min leestijd", metaUpdated: "Bijgewerkt 2025", metaAuthor: "Door het KeyUpNow Team",
+    tocTitle: "In deze handleiding",
+    toc1: "Word openen en de activeringsassistent starten", toc2: "Ga naar de Microsoft-activeringstool", toc3: "Meld u aan bij uw Microsoft-account", toc4: '"Een Microsoft-product activeren" selecteren', toc5: "Kies Microsoft Office en uw besturingssysteem", toc6: "Selecteer uw Office-versie", toc7: "Kopieer en voer uw installatie-ID in", toc8: "Voer de bevestigings-ID's in", toc9: "Activering voltooien",
+    intro: "De officiële Microsoft-activeringstool is een van de betrouwbaarste manieren om uw Office-licentie te activeren. Het proces is eenvoudig, duurt enkele minuten en werkt voor alle Office-versies.",
+    worksWith: "Werkt met",
+    s1Title: "Word openen en de activeringsassistent starten",
+    s1Text: 'Open <strong>Microsoft Word</strong>. De <strong>Activeringsassistent</strong> zou automatisch moeten verschijnen. Selecteer <strong>"Ik wil de software telefonisch activeren"</strong> en klik op <strong>Volgende</strong>.',
+    s1Tip: '<strong>Assistent verschijnt niet?</strong> Open Word, ga naar <strong>Account</strong> (linksonder) en klik op <strong>"Product activeren"</strong> op de rode banner.',
+    s1Cap: 'Selecteer "Ik wil de software telefonisch activeren" en klik op Volgende',
+    noteHeader: "Belangrijk — Lees dit",
+    noteText: '<strong>U hoeft Microsoft NIET te bellen!</strong> Microsoft heeft telefonische activering stopgezet. Bezoek gewoon de officiële activeringstool op <a href="https://aka.ms/aoh" target="_blank">https://aka.ms/aoh</a> en volg de instructies op het scherm. Het is snel, gratis en 24/7 beschikbaar.',
+    s2Title: "Ga naar de Microsoft-activeringstool", s2Text: "Gebruik de officiële online activeringstool van Microsoft:", s2Btn: "Microsoft-activeringstool openen — aka.ms/aoh", s2Text2: 'Klik op <strong>"Aan de slag"</strong> om te beginnen.', s2Cap: 'Klik op "Aan de slag"',
+    s3Title: "Meld u aan bij uw Microsoft-account", s3Text: "U wordt gevraagd om in te loggen met uw Microsoft-account. U kunt elk account gebruiken — het hoeft niet overeen te komen met het Office-account.", s3Cap1: "Voer uw Microsoft-account e-mailadres in", s3Cap2: "Voer uw wachtwoord in",
+    s4Title: '"Een Microsoft-product activeren"', s4Text: 'Na het aanmelden kiest u <strong>"Een Microsoft-product activeren"</strong>.', s4Cap: '"Een Microsoft-product activeren" selecteren',
+    s5Title: "Kies Microsoft Office en uw besturingssysteem", s5Text: 'Selecteer <strong>Microsoft Office</strong> als product. Kies vervolgens uw besturingssysteem — meestal <strong>Windows</strong>.', s5Cap: "Selecteer Microsoft Office en uw besturingssysteem (Windows)",
+    s6Title: "Selecteer uw Office-versie", s6Text: 'Kies uw Office-versie uit de lijst (bijv. <strong>Office 2024</strong>, <strong>Office 2021</strong>). U ziet dan een veld voor uw <strong>Installatie-ID</strong>.', s6Cap: "Selecteer uw Office-versie",
+    s7Title: "Kopieer en voer uw installatie-ID in", s7Text1: 'Ga terug naar de <strong>Activeringsassistent</strong>. U ziet een lange reeks cijfers — dit is uw <strong>Installatie-ID</strong>. Kopieer alle groepen.', s7Cap1: "Kopieer de Installatie-ID uit de Activeringsassistent", s7Text2: "Plak deze cijfers in de overeenkomstige velden op de activeringspagina.", s7Cap2: "Voer de Installatie-ID in op de activeringstool", s7Warn: "<strong>Belangrijk:</strong> Zorg dat u alle cijfergroepen correct invoert. Eén verkeerd cijfer leidt tot een ongeldige Bevestigings-ID.",
+    s8Title: "Voer de bevestigings-ID's in", s8Text1: 'Na het indienen genereert Microsoft <strong>Bevestigings-ID\'s</strong>. Kopieer deze van de activeringspagina.', s8Cap1: "Microsoft genereert uw Bevestigings-ID's — kopieer deze", s8Text2: 'Ga terug naar de Activeringsassistent en voer de ID\'s in bij <strong>Stap 3</strong>.', s8Cap2: "Plak de Bevestigings-ID's in Stap 3",
+    s9Title: "Activering voltooien", s9Text: 'Klik op <strong>"Volgende"</strong> en u bent klaar! Uw Microsoft Office is nu geactiveerd.', s9Tip: "<strong>Klaar!</strong> Uw Office-licentie is nu permanent geactiveerd op dit apparaat. Geen abonnement nodig.",
+    ctaTitle: "Hulp nodig?", ctaText: "Als u problemen tegenkomt tijdens de activering, staat ons supportteam voor u klaar.", ctaEmail: "E-mail support", ctaHelp: "Helpcentrum"
+  },
+  pl: {
+    heroBadge: "Instrukcja krok po kroku",
+    heroTitle: "Jak aktywować Microsoft Office",
+    heroSubtitle: "Kompletny przewodnik aktywacji licencji Office za pomocą oficjalnego narzędzia aktywacji Microsoft — szybko, łatwo i w kilka minut.",
+    metaRead: "5 min czytania", metaUpdated: "Zaktualizowano 2025", metaAuthor: "Zespół KeyUpNow",
+    tocTitle: "W tym przewodniku",
+    toc1: "Otwórz Word i uruchom Kreatora aktywacji", toc2: "Przejdź do narzędzia aktywacji Microsoft", toc3: "Zaloguj się na konto Microsoft", toc4: "Wybierz „Aktywuj produkt Microsoft"", toc5: "Wybierz Microsoft Office i system operacyjny", toc6: "Wybierz wersję Office", toc7: "Skopiuj i wprowadź identyfikator instalacji", toc8: "Wprowadź identyfikatory potwierdzenia", toc9: "Zakończ aktywację",
+    intro: "Oficjalne narzędzie aktywacji Microsoft to jeden z najbardziej niezawodnych sposobów aktywacji licencji Office. Proces jest prosty, zajmuje zaledwie kilka minut i działa ze wszystkimi wersjami Office.",
+    worksWith: "Działa z",
+    s1Title: "Otwórz Word i uruchom Kreatora aktywacji",
+    s1Text: 'Otwórz <strong>Microsoft Word</strong>. Okno <strong>Kreatora aktywacji</strong> powinno pojawić się automatycznie. Wybierz opcję <strong>„Chcę aktywować oprogramowanie telefonicznie"</strong>, a następnie kliknij <strong>Dalej</strong>.',
+    s1Tip: '<strong>Kreator się nie pojawia?</strong> Otwórz Word, przejdź do <strong>Konto</strong> (lewy dolny róg), a następnie kliknij <strong>„Aktywuj produkt"</strong> na czerwonym banerze.',
+    s1Cap: 'Wybierz „Chcę aktywować oprogramowanie telefonicznie" i kliknij Dalej',
+    noteHeader: "Ważne — Przeczytaj",
+    noteText: '<strong>NIE musisz dzwonić do Microsoft!</strong> Microsoft zakończył aktywację telefoniczną. Zamiast tego po prostu odwiedź oficjalne narzędzie aktywacji pod adresem <a href="https://aka.ms/aoh" target="_blank">https://aka.ms/aoh</a> i postępuj zgodnie z instrukcjami na ekranie. Jest szybkie, darmowe i dostępne 24/7.',
+    s2Title: "Przejdź do narzędzia aktywacji", s2Text: "Użyj oficjalnego narzędzia aktywacji online Microsoft:", s2Btn: "Otwórz narzędzie aktywacji — aka.ms/aoh", s2Text2: 'Kliknij <strong>„Zaczynajmy"</strong>, aby rozpocząć.', s2Cap: 'Kliknij „Zaczynajmy"',
+    s3Title: "Zaloguj się na konto Microsoft", s3Text: "Zostaniesz poproszony o zalogowanie się na konto Microsoft. Możesz użyć dowolnego konta — nie musi być powiązane z Office.", s3Cap1: "Wprowadź adres e-mail swojego konta Microsoft", s3Cap2: "Wprowadź hasło",
+    s4Title: "Wybierz „Aktywuj produkt Microsoft"", s4Text: 'Po zalogowaniu wybierz <strong>„Aktywuj produkt Microsoft"</strong>.', s4Cap: "Wybierz „Aktywuj produkt Microsoft"",
+    s5Title: "Wybierz Microsoft Office i system operacyjny", s5Text: 'Wybierz <strong>Microsoft Office</strong> jako produkt. Następnie wybierz system — zazwyczaj <strong>Windows</strong>.', s5Cap: "Wybierz Microsoft Office i system operacyjny (Windows)",
+    s6Title: "Wybierz wersję Office", s6Text: 'Wybierz wersję Office z listy (np. <strong>Office 2024</strong>, <strong>Office 2021</strong>). Pojawi się pole do wpisania <strong>Identyfikatora instalacji</strong>.', s6Cap: "Wybierz wersję Office",
+    s7Title: "Skopiuj i wprowadź identyfikator instalacji", s7Text1: 'Wróć do <strong>Kreatora aktywacji</strong>. Zobaczysz długi ciąg cyfr — to Twój <strong>Identyfikator instalacji</strong>. Skopiuj wszystkie grupy.', s7Cap1: "Skopiuj Identyfikator instalacji z Kreatora (Krok 2)", s7Text2: "Wklej te cyfry w odpowiednie pola na stronie aktywacji.", s7Cap2: "Wprowadź Identyfikator instalacji w narzędziu aktywacji", s7Warn: "<strong>Ważne:</strong> Upewnij się, że wprowadziłeś wszystkie grupy cyfr poprawnie. Jedna błędna cyfra spowoduje wygenerowanie nieprawidłowego identyfikatora.",
+    s8Title: "Wprowadź identyfikatory potwierdzenia", s8Text1: 'Po przesłaniu Microsoft wygeneruje <strong>Identyfikatory potwierdzenia</strong>. Skopiuj je ze strony aktywacji.', s8Cap1: "Microsoft generuje Identyfikatory potwierdzenia — skopiuj je", s8Text2: 'Wróć do Kreatora i wpisz identyfikatory w pola w <strong>Kroku 3</strong>.', s8Cap2: "Wklej Identyfikatory potwierdzenia w Kroku 3",
+    s9Title: "Zakończ aktywację", s9Text: 'Kliknij <strong>„Dalej"</strong> i gotowe! Twój Microsoft Office jest teraz aktywowany.', s9Tip: "<strong>Gotowe!</strong> Twoja licencja Office jest teraz trwale aktywowana na tym urządzeniu. Bez subskrypcji.",
+    ctaTitle: "Potrzebujesz pomocy?", ctaText: "Jeśli napotkasz jakiekolwiek problemy podczas aktywacji, nasz zespół wsparcia chętnie pomoże.", ctaEmail: "Wyślij e-mail", ctaHelp: "Centrum pomocy"
+  }
+};
+
+// ══════════════════════════════════════════════════════
+// LANGUAGE ENGINE
+// ══════════════════════════════════════════════════════
+var SUPPORTED = ['en','de','fr','es','nl','pl'];
+var COUNTRY_MAP = {
+  DE:'de',AT:'de',CH:'de',LI:'de',
+  FR:'fr',BE:'fr',MC:'fr',LU:'fr',
+  ES:'es',MX:'es',AR:'es',CO:'es',CL:'es',PE:'es',VE:'es',
+  NL:'nl',SR:'nl',
+  PL:'pl',
+  GB:'en',US:'en',AU:'en',CA:'en',NZ:'en',IE:'en',ZA:'en',AE:'en'
+};
+
+function matchLang(code) {
+  if (!code) return null;
+  var short = code.toLowerCase().split('-')[0].split('_')[0];
+  return SUPPORTED.indexOf(short) !== -1 ? short : null;
+}
+
+function applyLang(lang) {
+  var strings = T[lang];
+  if (!strings) return;
+  document.documentElement.lang = lang;
+  var els = document.querySelectorAll('[data-i18n]');
+  for (var i = 0; i < els.length; i++) {
+    var key = els[i].getAttribute('data-i18n');
+    if (strings[key]) els[i].innerHTML = strings[key];
+  }
+  var sel = document.getElementById('langSelect');
+  if (sel) sel.value = lang;
+}
+
+// Layer 1: Check localStorage for manual preference
+var currentLang = null;
+try { currentLang = localStorage.getItem('kunLang'); } catch(e) {}
+
+// Layer 2: Browser language fallback
+if (!currentLang || SUPPORTED.indexOf(currentLang) === -1) {
+  currentLang = matchLang(navigator.language);
+  if (!currentLang && navigator.languages) {
+    for (var i = 0; i < navigator.languages.length; i++) {
+      currentLang = matchLang(navigator.languages[i]);
+      if (currentLang) break;
+    }
+  }
+  if (!currentLang) currentLang = 'en';
+}
+
+// Apply immediately (Layer 1 or 2)
+applyLang(currentLang);
+
+// Layer 3: IP geolocation async upgrade (only if no manual pref saved)
+var hasManual = false;
+try { hasManual = !!localStorage.getItem('kunLang'); } catch(e) {}
+
+if (!hasManual) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'https://api.country.is', true);
+  xhr.onload = function() {
+    try {
+      var data = JSON.parse(xhr.responseText);
+      if (data && data.country) {
+        var geoLang = COUNTRY_MAP[data.country.toUpperCase()];
+        if (geoLang && SUPPORTED.indexOf(geoLang) !== -1 && geoLang !== currentLang) {
+          currentLang = geoLang;
+          applyLang(currentLang);
+        }
+      }
+    } catch(e) {}
+  };
+  xhr.onerror = function() {};
+  xhr.send();
+}
+
+// Manual selection via native <select>
+document.getElementById('langSelect').addEventListener('change', function() {
+  var lang = this.value;
+  currentLang = lang;
+  try { localStorage.setItem('kunLang', lang); } catch(e) {}
+  applyLang(lang);
+});
+</script>
+
+</body>
+</html>
